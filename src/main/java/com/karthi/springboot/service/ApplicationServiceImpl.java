@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.karthi.springboot.dao.ApplicationDao;
@@ -17,7 +18,7 @@ public class ApplicationServiceImpl implements ApplicationService{
 
 	@Override
 	public List<UserEntity> fetchUserDetails() throws DataAccessException {
-		return applicationDao.findAll();
+		return applicationDao.findAll(new Sort(Sort.Direction.ASC, "userId"));
 	}
 
 	@Override
