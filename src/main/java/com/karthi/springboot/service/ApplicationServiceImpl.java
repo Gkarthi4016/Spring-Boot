@@ -25,6 +25,11 @@ public class ApplicationServiceImpl implements ApplicationService{
 	public UserEntity findUserById(Long id) throws DataAccessException {
 		return applicationDao.findOne(id);
 	}
+	
+	@Override
+	public List<UserEntity> findUserByName(String userName) throws DataAccessException {
+		return applicationDao.findByName(userName);
+	}
 
 	@Override
 	public UserEntity addNewUser(UserEntity userEntity) throws DataAccessException {
@@ -42,6 +47,6 @@ public class ApplicationServiceImpl implements ApplicationService{
 	public void deleteUser(Long id) throws DataAccessException {
 		 applicationDao.delete(id);
 	}
-	
+
 
 }

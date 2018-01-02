@@ -12,6 +12,8 @@ public interface ApplicationService {
 	
 	public UserEntity findUserById(Long id) throws DataAccessException;
 	
+	public List<UserEntity> findUserByName(String userName) throws DataAccessException;
+	
 	public UserEntity addNewUser(UserEntity userEntity) throws DataAccessException;
 
 	public UserEntity updateUser(UserEntity userEntity) throws DataAccessException;

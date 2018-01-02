@@ -32,9 +32,15 @@ public class ApplicationController {
 		return ResponseEntity.ok(userEntities);
 	}
 	
-	@GetMapping("/user/{id}")
+	@GetMapping("/user/id/{id}")
 	public ResponseEntity<UserEntity> getUserDetails(@PathVariable("id") Long id) {
 		UserEntity userEntities = applicationServiceImpl.findUserById(id);
+		return ResponseEntity.ok(userEntities);
+	}
+	
+	@GetMapping("/user/name/{userName}")
+	public ResponseEntity<List<UserEntity>> getUserDetailsByName(@PathVariable("userName") String userName) {
+		List<UserEntity> userEntities = applicationServiceImpl.findUserByName(userName);
 		return ResponseEntity.ok(userEntities);
 	}
 	
