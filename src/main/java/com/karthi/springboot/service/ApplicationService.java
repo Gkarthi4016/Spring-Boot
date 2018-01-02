@@ -9,5 +9,12 @@ import com.karthi.springboot.model.UserEntity;
 public interface ApplicationService {
 	
 	public List<UserEntity> fetchUserDetails() throws DataAccessException;
+	
+	public UserEntity findUserById(Long id) throws DataAccessException;
+	
+	public UserEntity addNewUser(UserEntity userEntity) throws DataAccessException;
 
+	public UserEntity updateUser(UserEntity userEntity) throws DataAccessException;
+	
+	public void deleteUser(Long id) throws DataAccessException;
 }

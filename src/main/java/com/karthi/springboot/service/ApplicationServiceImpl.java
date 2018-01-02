@@ -20,4 +20,27 @@ public class ApplicationServiceImpl implements ApplicationService{
 		return applicationDao.findAll();
 	}
 
+	@Override
+	public UserEntity findUserById(Long id) throws DataAccessException {
+		return applicationDao.findOne(id);
+	}
+
+	@Override
+	public UserEntity addNewUser(UserEntity userEntity) throws DataAccessException {
+		
+		 return applicationDao.save(userEntity);
+	}
+	
+	@Override
+	public UserEntity updateUser(UserEntity userEntity) throws DataAccessException {
+		
+		 return applicationDao.save(userEntity);
+	}
+
+	@Override
+	public void deleteUser(Long id) throws DataAccessException {
+		 applicationDao.delete(id);
+	}
+	
+
 }
