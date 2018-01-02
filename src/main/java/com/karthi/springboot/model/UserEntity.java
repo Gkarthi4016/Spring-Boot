@@ -1,8 +1,11 @@
 package com.karthi.springboot.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,4 +30,7 @@ public class UserEntity {
 	private Long userId;
 	@Column(name="user_name")
 	private String userName;
+	
+	@OneToMany(mappedBy="userEntity")
+	private List<AddressEntity> addressList;
 }
