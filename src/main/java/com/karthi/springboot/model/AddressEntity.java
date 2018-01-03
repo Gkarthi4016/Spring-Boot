@@ -5,9 +5,11 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,7 +52,8 @@ public class AddressEntity implements Serializable{
 	@Column(name="zipcode")
 	private String zipCode;
 
-	@ManyToOne
-	@JoinColumn(name="user_id", nullable=false, insertable=false, updatable=false)
+	@OneToOne(optional=false)
+	@PrimaryKeyJoinColumn
+	@JsonBackReference
 	private UserEntity userEntity;
 }
