@@ -12,6 +12,6 @@ import com.karthi.springboot.model.UserEntity;
 @Repository
 public interface ApplicationDao extends JpaRepository<UserEntity, Long>{
 
-	@Query("SELECT p FROM UserEntity p WHERE p.userName like %:userName%")
+	@Query("SELECT p FROM UserEntity p WHERE p.userName like %:userName% Order by p.userId")
 	public List<UserEntity> findByName(@Param("userName") String userName);
 }

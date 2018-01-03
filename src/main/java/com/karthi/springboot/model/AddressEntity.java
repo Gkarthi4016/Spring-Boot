@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,8 +43,11 @@ public class AddressEntity implements Serializable{
 	@Column(name="address_line2")
 	private String addressTwo;
 	
-	@Column(name="street")
-	private String street;
+	@Column(name="city")
+	private String city;
+	
+	@Column(name="state")
+	private String state;
 	
 	@Column(name="country")
 	private String country;
@@ -54,6 +57,7 @@ public class AddressEntity implements Serializable{
 
 	@OneToOne(optional=false)
 	@PrimaryKeyJoinColumn
-	@JsonBackReference
+	//@JsonBackReference
+	@JsonIgnore
 	private UserEntity userEntity;
 }
