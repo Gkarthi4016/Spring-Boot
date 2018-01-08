@@ -1,0 +1,23 @@
+{
+        "userName": "Test",
+        "addressEntity":
+        	{
+        	
+        		"addressOne":"T3, Chandra flats",
+        		"addressTwo": "West Mambalam",
+            	 "city": "Chennai",
+        		 "state": "Tamilnadu",
+            	"country": "India",
+            	"zipCode": 600033
+        	},
+        	"orderList": [
+        {
+            "price": 1000,
+            "orderDate": 1514987055000
+        },
+         {
+            "price": 1000,
+            "orderDate": 1514987055000
+        }
+    ]
+}

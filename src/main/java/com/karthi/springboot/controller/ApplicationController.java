@@ -51,16 +51,8 @@ public class ApplicationController {
 	@PostMapping("/user/add")
 	public ResponseEntity<UserEntity> addNewUser(@RequestBody UserVo userVo){
 		
-		UserEntity userEntity = new UserEntity(userVo);
-		if(Objects.nonNull(userVo.getAddressEntity())) {
-			AddressEntity addressEntity = new AddressEntity(userVo.getAddressEntity());
-			addressEntity.setUserEntity(userEntity);
-			userEntity.setAddressEntity(addressEntity);
-		}
-		if(CollectionUtils.isNotEmpty(userVo.getOrderList())) {
-			
-		}
-		UserEntity entity = applicationServiceImpl.addNewUser(userEntity);		
+		
+		UserEntity entity = applicationServiceImpl.addNewUser(userVo);		
 		return ResponseEntity.ok(entity);		
 	}
 	

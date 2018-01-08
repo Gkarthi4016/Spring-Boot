@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 
 import com.karthi.springboot.model.UserEntity;
+import com.karthi.springboot.vo.UserVo;
 
 public interface ApplicationService {
 	
@@ -14,7 +15,7 @@ public interface ApplicationService {
 	
 	public List<UserEntity> findUserByName(String userName) throws DataAccessException;
 	
-	public UserEntity addNewUser(UserEntity userEntity) throws DataAccessException;
+	public UserEntity addNewUser(UserVo userVo) throws DataAccessException;
 
 	public UserEntity updateUser(UserEntity userEntity) throws DataAccessException;
 	
