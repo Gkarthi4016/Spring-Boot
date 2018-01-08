@@ -1,15 +1,21 @@
 package com.karthi.springboot.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.karthi.springboot.vo.AddressVo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,6 +41,8 @@ public class AddressEntity implements Serializable{
 	
 	@Id
 	@Column(name="user_id")
+	/*@GenericGenerator(name = "DEVICE.KARTHI_USER_SEQ", strategy = "foreign", parameters = @Parameter(name = "property", value = "karthi_user"))
+	@GeneratedValue(generator = "DEVICE.KARTHI_USER_SEQ")*/
 	private Long userId;
 	
 	@Column(name="address_line1")
@@ -60,4 +68,15 @@ public class AddressEntity implements Serializable{
 	//@JsonBackReference
 	@JsonIgnore
 	private UserEntity userEntity;
+	
+	public AddressEntity(AddressVo addressVo) {
+		if(Objects.nonNull(addressVo)) {
+			this.addressOne = addressVo.getAddressOne();
+			this.addressTwo = addressVo.getAddressTwo();
+			this.city = addressVo.getCity();
+			this.state = addressVo.getState();
+			this.country = addressVo.getCountry();
+			this.zipCode = addressVo.getZipCode();
+		}
+	}
 }
